@@ -1,5 +1,7 @@
 console.log('Array of objects');
 
+// THE PROPERTIES OF OBJECTS
+
 var dogs = [
 {
   name: "Dissel",
@@ -87,7 +89,8 @@ document.getElementById('allDogs').addEventListener('click', function() {
 
 
 
-// poodle
+// ONLY SHOWING POODLES
+
 document.getElementById('poodle').addEventListener('click', function() {
   console.log(dogs);
     document.getElementById('dog').innerHTML = " "; // to clear the container
@@ -121,6 +124,8 @@ document.getElementById('poodle').addEventListener('click', function() {
       }
 });
 
+// ONLY SHOWING GOLDEN RETRIVERS
+
 document.getElementById('goldenRetriver').addEventListener('click', function(){
   console.log(dogs);
   document.getElementById('dog').innerHTML = " "; //to clear the container
@@ -130,6 +135,8 @@ document.getElementById('goldenRetriver').addEventListener('click', function(){
   }
 }
 });
+
+// THIS IS WHERE THE USER CAN CHANGE A DOGS NAME
 
 document.getElementById('changeName').addEventListener('click', function(){
   var oldName = document.getElementById('oldName').value;
