@@ -49,21 +49,25 @@ var dogs = [
 }
 ];
 
+function allDetails(r) {
+  document.getElementById('dog').innerHTML += '</br><h1 class="jumbotron text-danger">' + dogs[r].name + '</h1>'
+  + '<div class="row">'
+  + '<div class="col">'
+  + '<img class="img-thumbnail" src="' + dogs[r].photo + ' "  alt="Dog"/>'
+  + '</div>'
+  + '<div class="col">'
+  + '</br></br> Breed : <h5 class="text-danger" >' + dogs[r].breed + '</h5>'
+  + '</br> Age : <h5 class="text-danger" > ' + dogs[r].age + '</h5>'
+  + '</br> Height : <h5 class="text-danger" >' + dogs[r].height + '</h5>'
+  + '</div>'
+  + '</div>';
+}
+
 // all dogs
 
 function allDogs(){
-for(var i = 0; i < dogs.length; i++) {
-   document.getElementById('dog').innerHTML += '</br><h1 class="jumbotron text-danger">' + dogs[i].name + '</h1>'
-+ '<div class="row">'
-+ '<div class="col">'
-+ '<img class="img-thumbnail" src="' + dogs[i].photo + ' "  alt="Dog"/>'
-+ '</div>'
-+ '<div class="col">'
-+ '</br></br> Breed : <h5 class="text-danger" >' + dogs[i].breed + '</h5>'
-+ '</br> Age : <h5 class="text-danger" > ' + dogs[i].age + '</h5>'
-+ '</br> Height : <h5 class="text-danger" >' + dogs[i].height + '</h5>'
-+ '</div>'
-+ '</div>';
+for(var r = 0; r < dogs.length; r++) {
+   allDetails(r);
 }
 }
 
