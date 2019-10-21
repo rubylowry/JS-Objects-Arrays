@@ -49,6 +49,8 @@ var dogs = [
 }
 ];
 
+// FUNCTION THAT INCLUDES ALL THE DOGS AND THEIR DATA
+
 function allDetails(r) {
   document.getElementById('dog').innerHTML += '</br><h1 class="jumbotron text-danger">' + dogs[r].name + '</h1>'
   + '<div class="row">'
@@ -63,13 +65,25 @@ function allDetails(r) {
   + '</div>';
 }
 
-// all dogs
+// ALL DOGS WILL APPEAR
 
 function allDogs(){
 for(var r = 0; r < dogs.length; r++) {
    allDetails(r);
 }
 }
+
+document.getElementById('allDogs').addEventListener('click', function() {
+  console.log(dogs);
+  document.getElementById('dog').innerHTML = " "; // to clear the container
+  for(var r = 0; r < dogs.length; r++) {
+    if (dogs[r].breed === "allDogs") {
+        allDetails(r);
+      }
+    }
+});
+
+
 
 
 
@@ -95,23 +109,14 @@ document.getElementById('poodle').addEventListener('click', function() {
   });
 
 
-// whippet
+// ONLY SHOWING WHIPPETS
+
   document.getElementById('whippet').addEventListener('click', function() {
     console.log(dogs);
     document.getElementById('dog').innerHTML = " "; // to clear the container
-    for(var i = 0; i < dogs.length; i++) {
-      if (dogs[i].breed === "Whippet") {
- document.getElementById('dog').innerHTML += '</br><h1 class="jumbotron text-danger">' + dogs[i].name + '</h1>'
-        + '<div class="row">'
-        +'<div class="col">'
-        + '<img class="img-thumbnail mt-5 myDogs" src="' + dogs[i].photo + ' "  alt="Dog"/>'
-        + '</div>'
-        + '<div class="col">'
-        + '</br></br> Breed : <h5 class="text-danger" >' + dogs[i].breed + '</h5>'
-        + '</br> Age : <h5 class="text-danger" > ' + dogs[i].age + '</h5>'
-        + '</br> Height : <h5 class="text-danger" >' + dogs[i].height + '</h5>'
-        + '</div>'
-        + '</div>';
+    for(var r = 0; r < dogs.length; r++) {
+      if (dogs[r].breed === "Whippet") {
+          allDetails(r);
         }
       }
 });
@@ -119,21 +124,9 @@ document.getElementById('poodle').addEventListener('click', function() {
 document.getElementById('goldenRetriver').addEventListener('click', function(){
   console.log(dogs);
   document.getElementById('dog').innerHTML = " "; //to clear the container
-
-
-  for(var i = 0; i < dogs.length; i++) {
-    if (dogs[i].breed.indexOf("Golden Retriver") > (-1) ) {
-document.getElementById('dog').innerHTML += '</br><h1 class="jumbotron text-danger">' + dogs[i].name + '</h1>'
-      + '<div class="row">'
-      +'<div class="col">'
-      + '<img class="img-thumbnail mt-5 myDogs" src="' + dogs[i].photo + ' "  alt="Dog"/>'
-      + '</div>'
-      + '<div class="col">'
-      + '</br></br> Breed : <h5 class="text-danger" >' + dogs[i].breed + '</h5>'
-      + '</br> Age : <h5 class="text-danger" > ' + dogs[i].age + '</h5>'
-      + '</br> Height : <h5 class="text-danger" >' + dogs[i].height + '</h5>'
-      + '</div>'
-      + '</div>';
+    for(var i = 0; i < dogs.length; i++) {
+      if (dogs[i].breed.indexOf("Golden Retriver") > (-1) ) {
+     allDetails(i);
   }
 }
 });
@@ -147,8 +140,6 @@ document.getElementById('changeName').addEventListener('click', function(){
       dogs[i].name = newName;
     }
   }
-  console.log(dogs);
-  allDogs();
 });
 
 document.getElementById('allDogs').addEventListener('click', function(){
