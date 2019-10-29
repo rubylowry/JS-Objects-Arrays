@@ -7,7 +7,7 @@ var dogs = [
   name: "Dissel",
   id: "dog1",
   breed: "Golden Retriver",
-  color: "golden",
+  color: "Golden",
   height: 70,
   age: 7,
   photo: "img/dog1.jpg"
@@ -17,7 +17,7 @@ var dogs = [
   name: "Toby",
   id: "dog2",
   breed: "Whippet",
-  color: "charcoal and white",
+  color: "Charcoal and white",
   height: 40,
   age: 3,
   photo: "img/dog2.jpg"
@@ -26,7 +26,7 @@ var dogs = [
   name: "Old Boy",
   id: "dog3",
   breed: "Golden Retriver",
-  color: "golden",
+  color: "Golden",
   height: 80,
   age: 13,
   photo: "img/dog3.jpg"
@@ -35,21 +35,23 @@ var dogs = [
   name: "Squirmy",
   id: "dog4",
   breed: "Greyhound",
-  color: "black and white",
+  color: "Black and white",
   height: 90,
   age: 4,
   photo: "img/dog4.jpg"
 },
 {
   name: "PomPom",
-  id: "dog5",
+  id: "dog5", // follows a pattern
   breed: "Poodle",
-  color: "golden",
+  color: "Golden",
   height: 40,
   age: 5,
   photo: "img/dog5.jpg"
 }
 ];
+
+var id = 1; // variable is used to generate id's for image
 
 // FUNCTION THAT INCLUDES ALL THE DOGS AND THEIR DATA
 
@@ -57,7 +59,7 @@ function allDetails(r) {
   document.getElementById('dog').innerHTML += '</br><h1 class="jumbotron text-danger">' + dogs[r].name + '</h1>'
   + '<div class="row">'
   + '<div class="col">'
-  + '<img class="img-thumbnail" src="' + dogs[r].photo + ' "  alt="Dog"/>'
+  + '<img id="dog' + id.toString() + '" class="img-thumbnail myDogs" src=" ' + dogs[r].photo + '"  alt="Dog"/>'
   + '</div>'
   + '<div class="col">'
   + '</br></br> Breed : <h5 class="text-danger" >' + dogs[r].breed + '</h5>'
@@ -65,25 +67,26 @@ function allDetails(r) {
   + '</br> Height : <h5 class="text-danger" >' + dogs[r].height + '</h5>'
   + '</div>'
   + '</div>';
+  id++;
 }
 
 // ALL DOGS WILL APPEAR
 
-function allDogs(){
+// function allDogs(){
 for(var r = 0; r < dogs.length; r++) {
    allDetails(r);
 }
-}
+// };
 
-document.getElementById('allDogs').addEventListener('click', function() {
-  console.log(dogs);
-  document.getElementById('dog').innerHTML = " "; // to clear the container
-  for(var r = 0; r < dogs.length; r++) {
-    if (dogs[r].breed === "allDogs") {
-        allDetails(r);
-      }
-    }
-});
+// document.getElementById('allDogs').addEventListener('click', function() {
+//   console.log(dogs);
+//   document.getElementById('dog').innerHTML = " "; // to clear the container
+//   for(var r = 0; r < dogs.length; r++) {
+//     if (dogs[r].breed === "allDogs") {
+         // allDetails(r);
+//       }
+//     }
+// });
 
 
 
@@ -96,19 +99,9 @@ document.getElementById('poodle').addEventListener('click', function() {
     document.getElementById('dog').innerHTML = " "; // to clear the container
   for(var i = 0; i < dogs.length; i++) {
     if (dogs[i].breed === "Poodle") {
-      document.getElementById('dog').innerHTML += '</br><h1 class="jumbotron text-danger">' + dogs[i].name + '</h1>'
-             + '<div class="row">'
-             +'<div class="col">'
-             + '<img class="img-thumbnail mt-5 myDogs" src="' + dogs[i].photo + ' "  alt="Dog"/>'
-             + '</div>'
-             + '<div class="col">'
-             + '</br></br> Breed : <h5 class="text-danger" >' + dogs[i].breed + '</h5>'
-             + '</br> Age : <h5 class="text-danger" > ' + dogs[i].age + '</h5>'
-             + '</br> Height : <h5 class="text-danger" >' + dogs[i].height + '</h5>'
-             + '</div>'
-             + '</div>';
- }
-  }
+      allDetails(i);
+      }
+    }
   });
 
 
@@ -147,8 +140,43 @@ document.getElementById('changeName').addEventListener('click', function(){
       dogs[i].name = newName;
     }
   }
+  console.log(dogs);
+  allDogs();
 });
 
 document.getElementById('allDogs').addEventListener('click', function(){
   allDogs();
+});
+
+
+$('.myDogs').on('click', function(){
+  console.log('dogs');
+  console.log(this.id);
+
+  $('.myModal').show();
+  for (var i = 0; i < dogs.length ; i++) {
+    console.log(typeof(dogs[i].id));
+    console.log(dogs[i].id);
+    console.log(i);
+    console.log(dogs[i].id == this.id);
+    //id property of dogs is checked for  equivalence with the image id of the clicked element
+    if (this.id.trim() == dogs[i].id.trim()) {
+      //remove leading and trailing space in the string while trying to match
+      console.log(dogs[i].name);
+      console.log(dogs[i].breed);
+      console.log(dogs[i].color);
+      console.log(dogs[i].height);
+      console.log(dogs[i].age);
+      document.getElementById('modalContent').innerHTML
+      = '<div class=" jumbotron"> ' + 'Name: ' + dogs[i].name + ' </br>'
+      + 'Breed: ' + dogs[i].breed + '</br>' + 'Colour: ' + dogs[i].color + ' </br>'
+      + 'Height: ' + dogs[i].height + ' cm' + '</br>' + 'Age: ' + dogs[i].age + ' years' + '</div>'
+      }
+    }
+});
+
+$('.closeBar').on('click', function(){
+  console.log('dogs');
+  $('.myModal').hide();
+
 });

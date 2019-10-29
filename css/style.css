@@ -2,9 +2,34 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: pink;
 }
 
 #dog {
     width: 400px;
+}
+
+.myDogs{
+  width: 200px;
+}
+.myDogs:hover{
+  border: 2px solid yellow;
+}
+
+.myModal{
+  background: lightblue;
+  height: 400px;
+  width: 400px;
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 5;
+}
+
+.closeBar{
+  font-size: 25px;
+}
+
+.modalContent {
+  font-size: 12px;
 }
