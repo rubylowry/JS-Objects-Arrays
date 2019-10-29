@@ -21,8 +21,8 @@
   width: 400px;
   display: none;
   position: fixed;
-  top: 0px;
-  left: 0px;
+  top: 30%;
+  left: 30%;
   z-index: 5;
 }
 
@@ -30,6 +30,7 @@
   font-size: 25px;
 }
 
-.modalContent {
-  font-size: 12px;
+#modalContent {
+  margin: 20px 20px;
+  font-size: 22px;
 }

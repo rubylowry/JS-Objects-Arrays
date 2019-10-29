@@ -154,6 +154,7 @@ $('.myDogs').on('click', function(){
   console.log(this.id);
 
   $('.myModal').show();
+  $('#hideContainer').hide();
   for (var i = 0; i < dogs.length ; i++) {
     console.log(typeof(dogs[i].id));
     console.log(dogs[i].id);
@@ -178,5 +179,5 @@ $('.myDogs').on('click', function(){
 $('.closeBar').on('click', function(){
   console.log('dogs');
   $('.myModal').hide();
-
+  $('#hideContainer').show();
 });
