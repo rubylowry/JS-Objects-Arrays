@@ -10,7 +10,10 @@ var dogs = [
   color: "Golden",
   height: 70,
   age: 7,
-  photo: "img/dog1.jpg"
+  photo: "img/dog1.jpg",
+  photo1: "img/dog1again.jpg",
+  photo2: "img/dog1againagain.jpg",
+  photo3: "img/dog1againagainagain.jpg"
 
 },
 {
@@ -20,7 +23,9 @@ var dogs = [
   color: "Charcoal and white",
   height: 40,
   age: 3,
-  photo: "img/dog2.jpg"
+  photo: "img/dog2.jpg",
+  photo1: "img/dog2again.jpg",
+  photo2: "img/dog2againagain.jpg"
 },
 {
   name: "Old Boy",
@@ -29,7 +34,9 @@ var dogs = [
   color: "Golden",
   height: 80,
   age: 13,
-  photo: "img/dog3.jpg"
+  photo: "img/dog3.jpg",
+  photo1: "img/dog3again.jpg",
+  photo2: "img/dog3againagain.jpg"
 },
 {
   name: "Squirmy",
@@ -38,7 +45,9 @@ var dogs = [
   color: "Black and white",
   height: 90,
   age: 4,
-  photo: "img/dog4.jpg"
+  photo: "img/dog4.jpg",
+  photo1: "img/dog4again.jpg",
+  photo2: "img/dog4againagain.jpg"
 },
 {
   name: "PomPom",
@@ -47,7 +56,9 @@ var dogs = [
   color: "Golden",
   height: 40,
   age: 5,
-  photo: "img/dog5.jpg"
+  photo: "img/dog5.jpg",
+  photo1: "img/dog5again.jpg",
+  photo2: "img/dog5againagain.jpg"
 }
 ];
 
@@ -59,7 +70,7 @@ function allDetails(r) {
   document.getElementById('dog').innerHTML += '</br><h1 class="jumbotron text-danger">' + dogs[r].name + '</h1>'
   + '<div class="row">'
   + '<div class="col">'
-  + '<img id="dog' + id.toString() + '" class="img-thumbnail myDogs" src=" ' + dogs[r].photo + '"  alt="Dog"/>'
+  + '<img id="dog' + id.toString() + '" class="img-thumbnail myDogs" src=" ' + dogs[r].photo1 + '"  alt="Dog"/>'
   + '</div>'
   + '<div class="col">'
   + '</br></br> Breed : <h5 class="text-danger" >' + dogs[r].breed + '</h5>'
@@ -169,9 +180,28 @@ $('.myDogs').on('click', function(){
       console.log(dogs[i].height);
       console.log(dogs[i].age);
       document.getElementById('modalContent').innerHTML
-      = '<div class=" jumbotron"> ' + 'Name: ' + dogs[i].name + ' </br>'
-      + 'Breed: ' + dogs[i].breed + '</br>' + 'Colour: ' + dogs[i].color + ' </br>'
-      + 'Height: ' + dogs[i].height + ' cm' + '</br>' + 'Age: ' + dogs[i].age + ' years' + '</div>'
+      += '<div class="jumbotrons ml-5 text-info"> ' + dogs[i].name + '</br>'
+      + dogs[i].breed + '</br>' + dogs[i].color + '</br>'
+      + 'Height : ' + dogs[i].height + '</br>' + 'Age :' + dogs[i].age + '</div>' + '<br>'
+      + '<div id="carouselExampleIndicators" class="carousel slide myCarousel" data-ride="carousel">'
+      +      '<ol class="carousel-indicators">'
+      +         '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>'
+      +         '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>'
+      +         '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>'
+      +      '</ol> <div class="carousel-inner"><div class="carousel-item active">'
+      + '<img class="card-thumbnail  myDogs modalDog width="200" height="120" src="' + dogs[i].photo + '"  alt="Dog"/>'
+      + '</div> <div class="carousel-item">'
+      + '<img class="card-thumbnail  myDogs modalDog" src="' + dogs[i].photo1 + '"  alt="Dog"/>'
+      + '</div><div class="carousel-item">'
+      + '<img class="card-thumbnail  myDogs modalDog" src="' + dogs[i].photo2 + '"  alt="Dog"/>'
+      + '</div> </div>'
+      + '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'
+      + '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'
+      + '<span class="sr-only">Previous</span> </a>'
+      + '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'
+      + '<span class="carousel-control-next-icon" aria-hidden="true"></span>'
+      + '<span class="sr-only">Next</span> </a></div>';
+      + '</br>'
       }
     }
 });
